@@ -30,6 +30,17 @@ public class WalletsEntity implements Serializable {
     @JoinColumn(name = "userid")
     private UserEntity user;
 
+    @OneToMany (mappedBy = "walletsEntity")
+    private List<TransactionsEntity> transactionsEntity;
+
+    public List<TransactionsEntity> getTransactionsEntity() {
+        return transactionsEntity;
+    }
+
+    public void setTransactionsEntity(List<TransactionsEntity> transactionsEntity) {
+        this.transactionsEntity = transactionsEntity;
+    }
+
     public long getId() {
         return id;
     }
