@@ -1,12 +1,23 @@
 package org.bsim.intern.walletapp_demo2.shared.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDTO implements Serializable {
     private static final long serialVersionUID= -6611517764332589969L;
     private long id;
     private String userId;
     private String userName;
+
+    private List<WalletsDTO> listWallet;
+
+    public List<WalletsDTO> getListWallet() {
+        return listWallet;
+    }
+
+    public void setListWallet(List<WalletsDTO> listWallet) {
+        this.listWallet = listWallet;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;

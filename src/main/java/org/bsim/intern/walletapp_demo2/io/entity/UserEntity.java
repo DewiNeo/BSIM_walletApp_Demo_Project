@@ -2,6 +2,8 @@ package org.bsim.intern.walletapp_demo2.io.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "userTBL")
@@ -18,6 +20,17 @@ public class UserEntity implements Serializable {
 
     @Column(unique = false, columnDefinition = "VARCHAR(50", length = 50)
     private String userName;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<WalletsEntity> walletsentity = new ArrayList<>();
+
+    public List<WalletsEntity> getWalletsentity() {
+        return walletsentity;
+    }
+
+    public void setWalletsentity(List<WalletsEntity> walletsentity) {
+        this.walletsentity = walletsentity;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
